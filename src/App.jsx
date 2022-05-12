@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import "./App.css";
 import AddTask from "./components/AddTask.jsx";
 import Tasks from "./components/Tasks";
@@ -18,12 +20,21 @@ const App = () => {
     },
   ]);
 
+  const handleTaskCLick = (taskId) => {
+    const newTasks = tasks.map((task) => {
+      if (task.id == taskId) return { ...task, completed: !task.completed };
+
+      return task;
+    });
+    setTasks(newTasks);
+  };
+
   const handleTaskAddition = (taskTitle) => {
     const newTasks = [
       ...tasks,
       {
         title: taskTitle,
-        id: Math.random(10),
+        id: uuidv4(),
         completed: false,
       },
     ];
@@ -31,10 +42,19 @@ const App = () => {
     setTasks(newTasks);
   };
 
+  const handleTaskRemove = (taskId) => {
+    const newTasks = tasks.filter((task) => task.id != taskId);
+    setTasks(newTasks);
+  };
+
   return (
     <div className="container">
       <AddTask handleTaskAddition={handleTaskAddition} />
-      <Tasks tasks={tasks} />
+      <Tasks
+        tasks={tasks}
+        handleTaskCLick={handleTaskCLick}
+        handleTaskRemove={handleTaskRemove}
+      />
     </div>
   );
 };
