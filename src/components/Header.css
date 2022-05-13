@@ -1,0 +1,10 @@
+.header {
+  font-family: "consolas";
+  color: white;
+}
+
+.hr {
+  background-color: #6ed9e7;
+  border-color: #6ed9e7;
+  border-radius: 20px;
+}
