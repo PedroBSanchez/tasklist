@@ -22,4 +22,9 @@
   font-size: 18px;
   color: #6ed9e7;
   cursor: pointer;
+  margin: 0 5px;
+}
+
+.remove-task-button {
+  padding-right: 8px;
 }
