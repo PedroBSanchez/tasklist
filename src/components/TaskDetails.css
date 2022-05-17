@@ -1,12 +1,11 @@
 .task-details-container {
-  background-color: #444;
+  background: #444;
   margin: 15px 0;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
   color: #eee;
   border-radius: 5px;
-  font-family: "consolas";
 }
 
 .task-details-container h2 {
@@ -17,5 +16,4 @@
 .back-button-container {
   width: 30%;
   margin-top: 10px;
-  font-family: "consolas";
 }

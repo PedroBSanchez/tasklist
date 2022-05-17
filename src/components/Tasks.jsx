@@ -2,18 +2,19 @@ import React from "react";
 
 import Task from "./Task";
 
-const tasks = ({ tasks, handleTaskCLick, handleTaskRemove }) => {
-  return (
-    <div>
-      {tasks.map((task) => (
-        <Task
-          task={task}
-          handleTaskCLick={handleTaskCLick}
-          handleTaskRemove={handleTaskRemove}
-        />
-      ))}
-    </div>
-  );
+const Tasks = ({ tasks, handleTaskClick, handleTaskDeletion }) => {
+	return (
+		<>
+			{tasks.map((task) => (
+				<Task
+					key={task.id}
+					task={task}
+					handleTaskClick={handleTaskClick}
+					handleTaskDeletion={handleTaskDeletion}
+				/>
+			))}
+		</>
+	);
 };
 
-export default tasks;
+export default Tasks;

@@ -4,27 +4,26 @@ import { useHistory } from "react-router-dom";
 
 import "./Task.css";
 
-const Task = ({ task, handleTaskCLick, handleTaskRemove }) => {
+const Task = ({ task, handleTaskClick, handleTaskDeletion }) => {
   const history = useHistory();
 
-  const handleTaskDetailsClick = (string) => {
+  const handleTaskDetailsClick = () => {
     history.push(`/${task.title}`);
   };
 
   return (
     <div
       className="task-container"
-      style={task.completed ? { borderLeft: "15px solid #6ed9e7" } : {}}
+      style={task.completed ? { borderLeft: "6px solid #6ed9e7" } : {}}
     >
-      <div className={"task-title"} onClick={() => handleTaskCLick(task.id)}>
+      <div className="task-title" onClick={() => handleTaskClick(task.id)}>
         {task.title}
       </div>
-      <div className="button-container">
+
+      <div className="buttons-container">
         <button
           className="remove-task-button"
-          onClick={() => {
-            handleTaskRemove(task.id);
-          }}
+          onClick={() => handleTaskDeletion(task.id)}
         >
           <CgClose />
         </button>
@@ -37,7 +36,6 @@ const Task = ({ task, handleTaskCLick, handleTaskRemove }) => {
       </div>
     </div>
   );
-  // <div className="task-container">{task.title}</div>;
 };
 
 export default Task;

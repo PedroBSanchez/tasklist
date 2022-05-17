@@ -1,12 +1,7 @@
 import React from "react";
-import "./Header.css";
 
-const Header = ({ children }) => {
-  return (
-    <h1 className="header">
-      {children} <hr className="hr" />
-    </h1>
-  );
+const Header = () => {
+  return <h1 style={{ color: "#eee" }}>Minhas Tarefas</h1>;
 };
 
 export default Header;
