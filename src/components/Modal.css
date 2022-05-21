@@ -1,0 +1,150 @@
+.modal-container {
+  width: 650px;
+  height: 325px;
+  border-radius: 5px;
+  background-color: #222;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  padding: 5px;
+  border: 2px solid #6ed9e7;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 2;
+}
+
+.modal-background {
+  width: 100vw;
+  height: 60vh;
+  background-color: rgba(34, 34, 34, 0);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal-button {
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  color: #444;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.5s ease;
+}
+
+.modal-button .add {
+  background-color: rgb(18, 131, 18);
+}
+
+.modal-button .cancel {
+  background-color: rgb(185, 64, 64);
+}
+
+.title-container {
+  margin-top: 7px;
+  margin-left: 15px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.title {
+  color: #eee;
+  font-family: "consolas";
+  font-weight: 500;
+  text-align: center;
+}
+
+.closeModalButtonContainer {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeModalButton {
+  background-color: #222;
+  border: none;
+  font-size: 24px;
+  color: #6ed9e7;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.body {
+  text-align: left;
+  margin-left: 10px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.description-field {
+  margin-top: 15px;
+}
+
+.input {
+  height: 35px;
+  width: 500px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+  flex: 2;
+  background-color: #444;
+  color: #eee;
+  font-size: 16px;
+  display: block;
+}
+
+.textarea {
+  resize: none;
+}
+
+.label {
+  color: #eee;
+  font-family: "consolas";
+  font-weight: 600;
+}
+
+.footer {
+  display: flex;
+  margin-top: 35px;
+  margin-right: 25px;
+  text-align: right;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+.button {
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  width: 150px;
+  font-size: 16px;
+  color: #eee;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.5s ease;
+  flex-direction: column;
+}
+
+.add {
+  background-color: rgb(43, 141, 43);
+}
+.cancel {
+  margin-right: 25px;
+  background-color: rgb(136, 48, 48);
+}
+
+.add:hover {
+  background-color: #eee;
+  color: rgb(43, 141, 43);
+}
+
+.cancel:hover {
+  background-color: #eee;
+  color: rgb(136, 48, 48);
+}
