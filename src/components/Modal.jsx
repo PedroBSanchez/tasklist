@@ -27,7 +27,7 @@ const Modal = ({ setModalOpen, handleTaskAddition }) => {
         <div className="modal-container">
           <div className="title-container">
             <div className="title">
-              <h2>Adicionar Tarefa</h2>
+              <h2>Add Task</h2>
             </div>
             <div className="closeModalButtonContainer">
               <button
@@ -66,10 +66,10 @@ const Modal = ({ setModalOpen, handleTaskAddition }) => {
                 setModalOpen(false);
               }}
             >
-              Cancelar
+              Cancel
             </button>
             <button className="modal-button add" onClick={handlePost}>
-              Adicionar
+              Confirm
             </button>
           </div>
         </div>

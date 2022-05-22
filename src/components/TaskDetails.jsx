@@ -14,10 +14,9 @@ const TaskDetails = (apiUrl) => {
   const [description, setDescription] = useState();
 
   const handleGetById = () => {
-    console.log(apiUrl);
-    axios.get(`${apiUrl}/tasks/${params.taskId}`).then((res) => {
-      // jogar dados da response no title e description
-      console.log(res.data);
+    axios.get(`${apiUrl.apiUrl}/tasks/${params.taskId}`).then((res) => {
+      setTitle(res.data.title);
+      setDescription(res.data.description);
     });
   };
 

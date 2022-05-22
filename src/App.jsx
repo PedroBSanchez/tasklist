@@ -17,7 +17,7 @@ const App = () => {
 
   const [modal, setModalOpen] = useState(false);
 
-  const apiUrl = "https://crudcrud.com/api/bed6651e3c764033a624f2c6a3d43eac";
+  const apiUrl = "https://crudcrud.com/api/e8a6a686ef49436ea69aca44fea076bc";
 
   const handleGet = async () => {
     axios.get(`${apiUrl}/tasks`).then((res) => {
