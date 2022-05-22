@@ -1,32 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import axios from "axios";
 
 import Button from "./Button";
 
 import "./TaskDetails.css";
 
-const TaskDetails = () => {
-	const params = useParams();
-	const history = useHistory();
+const TaskDetails = (apiUrl) => {
+  const params = useParams();
+  const history = useHistory();
 
-	const handleBackButtonClick = () => {
-		history.goBack();
-	};
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
 
-	return (
-		<>
-			<div className="back-button-container">
-				<Button onClick={handleBackButtonClick}>Voltar</Button>
-			</div>
-			<div className="task-details-container">
-				<h2>{params.taskTitle}</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur
-					minima eius magnam culpa sequi explicabo.
-				</p>
-			</div>
-		</>
-	);
+  const handleGetById = () => {
+    console.log(apiUrl);
+    axios.get(`${apiUrl}/tasks/${params.taskId}`).then((res) => {
+      // jogar dados da response no title e description
+      console.log(res.data);
+    });
+  };
+
+  useEffect(() => {
+    handleGetById();
+  }, []);
+
+  const handleBackButtonClick = () => {
+    history.goBack();
+  };
+
+  return (
+    <>
+      <div className="back-button-container">
+        <Button onClick={handleBackButtonClick}>Voltar</Button>
+      </div>
+      <div className="task-details-container">
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+    </>
+  );
 };
 
 export default TaskDetails;

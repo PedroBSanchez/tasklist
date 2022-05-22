@@ -61,14 +61,14 @@ const Modal = ({ setModalOpen, handleTaskAddition }) => {
           </div>
           <div className="footer">
             <button
-              className="button cancel"
+              className="modal-button cancel"
               onClick={() => {
                 setModalOpen(false);
               }}
             >
               Cancelar
             </button>
-            <button className="button add" onClick={handlePost}>
+            <button className="modal-button add" onClick={handlePost}>
               Adicionar
             </button>
           </div>

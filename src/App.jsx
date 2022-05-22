@@ -10,32 +10,42 @@ import TaskDetails from "./components/TaskDetails";
 import Modal from "./components/Modal";
 
 import "./App.css";
+import Task from "./components/Task";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
   const [modal, setModalOpen] = useState(false);
 
+  const apiUrl = "https://crudcrud.com/api/bed6651e3c764033a624f2c6a3d43eac";
+
   const handleGet = async () => {
-    const { data } = await axios.get(
-      `https://crudcrud.com/api/08425ced6803483fb4adec70f7263406/tasks`
-    );
-    setTasks(data);
-    console.log(data);
+    axios.get(`${apiUrl}/tasks`).then((res) => {
+      setTasks(res.data);
+    });
   };
 
   useEffect(() => {
     handleGet();
   }, []);
 
-  const handleTaskClick = (taskId) => {
+  const handleTaskClick = (taskId, task) => {
     const newTasks = tasks.map((task) => {
       if (task._id === taskId) return { ...task, completed: !task.completed };
 
       return task;
     });
-    // Fazer put levando taskId como parâmetro de requisição e mandando true no completed, após é só mandar o handleGet()
-    // ALTERAR o handleTaskClick para recer a task e não apenas o taskId
+
+    axios
+      .put(`${apiUrl}/tasks/${taskId}`, {
+        title: task.title,
+        description: task.description,
+        completed: !task.completed,
+      })
+      .catch((error) => {
+        alert(`Resetar Api CrudCrud -> ${error}`);
+      });
+
     setTasks(newTasks);
   };
 
@@ -45,7 +55,7 @@ const App = () => {
 
   const handleTaskAddition = (taskTitle, taskDescription) => {
     axios
-      .post(`https://crudcrud.com/api/08425ced6803483fb4adec70f7263406/tasks`, {
+      .post(`${apiUrl}/tasks`, {
         title: taskTitle,
         description: taskDescription,
         completed: false,
@@ -54,15 +64,22 @@ const App = () => {
         handleGet();
       })
       .catch((error) => {
-        alert("Ocorreu um problema" + error);
+        alert("Resetar Api CrudCrud -> " + error);
       });
   };
 
   const handleTaskDeletion = (taskId) => {
+    axios
+      .delete(`${apiUrl}/tasks/${taskId}`)
+      .then((res) => {
+        handleGet();
+      })
+      .catch((error) => {
+        alert(`Resetar api CrudCrud -> ${error}`);
+      });
     // Apenas fazer o delete com o Id que já está sendo passado
-
-    const newTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(newTasks);
+    //const newTasks = tasks.filter((task) => task.id !== taskId);
+    //setTasks(newTasks);
   };
 
   return (
@@ -90,7 +107,11 @@ const App = () => {
             </>
           )}
         />
-        <Route path="/:taskTitle" exact component={TaskDetails} />
+        <Route
+          path="/:taskId"
+          exact
+          render={() => <TaskDetails apiUrl={apiUrl} />}
+        />
       </div>
     </Router>
   );

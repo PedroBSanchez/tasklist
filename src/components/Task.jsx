@@ -8,7 +8,7 @@ const Task = ({ task, handleTaskClick, handleTaskDeletion }) => {
   const history = useHistory();
 
   const handleTaskDetailsClick = () => {
-    history.push(`/${task.title}`);
+    history.push(`/${task._id}`);
   };
 
   return (
@@ -26,7 +26,7 @@ const Task = ({ task, handleTaskClick, handleTaskDeletion }) => {
       <div className="buttons-container">
         <button
           className="remove-task-button"
-          onClick={() => handleTaskDeletion(task.id)}
+          onClick={() => handleTaskDeletion(task._id)}
         >
           <CgClose />
         </button>
