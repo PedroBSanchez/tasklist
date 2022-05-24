@@ -17,10 +17,11 @@ const App = () => {
 
   const [modal, setModalOpen] = useState(false);
 
-  const apiUrl = "https://crudcrud.com/api/e8a6a686ef49436ea69aca44fea076bc";
+  const apiUrl = "https://tasklistapi1.herokuapp.com";
 
   const handleGet = async () => {
     axios.get(`${apiUrl}/tasks`).then((res) => {
+      console.log(res.data);
       setTasks(res.data);
     });
   };
