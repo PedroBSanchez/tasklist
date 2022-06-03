@@ -1,5 +1,5 @@
 # taskList
-Projetct made with React to create a task list mannager using an ApiREST architecture.
+Project made with React to create a task list mannager using an ApiREST architecture.
 
 Images:
 
