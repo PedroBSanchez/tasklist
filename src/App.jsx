@@ -17,7 +17,7 @@ const App = () => {
 
   const [modal, setModalOpen] = useState(false);
 
-  const apiUrl = "https://tasklistapi1.herokuapp.com";
+  const apiUrl = "https://tasklist-api-awj8.onrender.com";
 
   const handleGet = async () => {
     axios.get(`${apiUrl}/tasks`).then((res) => {
